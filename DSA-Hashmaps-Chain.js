@@ -11,7 +11,8 @@ class HashMapChain {
     display() {
         this._hashTable.forEach(item => {
             if (item) {
-                console.log(item)
+                console.log(item.value) // shows a nice list view
+                // console.log(item)  // shows a more indepth view
                 while (item.next) {
                     console.log(item.next)
                     item = item.next
