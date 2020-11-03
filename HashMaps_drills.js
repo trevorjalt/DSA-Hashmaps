@@ -1,4 +1,5 @@
 const HashMap = require('./DSA-Hashmaps')
+const HashMapChain = require('./DSA-Hashmaps-Chain')
 
 function main() {
     const lotr = new HashMap()
@@ -23,6 +24,9 @@ function main() {
     console.log(lotr.get("Maiar"));  // Sauron, the key for "Maiar" is being reset
     console.log(lotr.get("Hobbit")); // Frodo, the key for "Hobbit" is being reset 
     console.log(lotr._capacity); // 24, since we exceed the initial length of 8 we must multiply by size ratio to accomodate, 8 x 3.
+
+    console.log(lotr.get('VampireSlayer')) // Check for error handling, Buffy's got her own show
+
 }
 
 main()
@@ -209,4 +213,3 @@ function anagramGroups(arr) {
 
 let anagramTest = ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race']
 console.log(anagramGroups(anagramTest))
-

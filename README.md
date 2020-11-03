@@ -28,7 +28,6 @@ class HashMap {
         if (loadRatio > HashMap.MAX_LOAD_RATIO) {
             this._resize(this._capacity * HashMap.SIZE_RATIO)
         }
-        // Find the slot where the key should be in
         const index = this._findSlot(key)
 
         if (!this._hashTable[index]){
@@ -68,7 +67,6 @@ class HashMap {
     _resize(size) {
         const oldSlots = this._hashTable
         this._capacity = size
-        // Reset the length - it will get rebuilt as you add the items back
         this.length = 0
         this._deleted = 0
         this._hashTable = []
@@ -83,14 +81,9 @@ class HashMap {
     static _hashString(string) {
         let hash = 5381
         for (let i = 0; i < string.length; i++) {
-            // Bitwise, left shift with 5 0s = this would be similar to hash*31
-            // 31 being the decent prime number but bit shifting is a faster way
-            // to do this tradeoff 
             hash = (hash << 5) + hash + string.charCodeAt(i)
-            // converting hash to a 32 bit integer
             hash = hash & hash
         }
-        // making sure hash is unsigned - meaning non-negative number
         return hash >>> 0
     }
 }
@@ -141,7 +134,7 @@ const WhatDoesThisDo = function(){
 ````
 A:
 
-Because str1 and str2 have the same key, when we set them in map1 they are colliding.  str2's value replaces str1's value for the key: 'Hello World.'   This behavior is repeated for str3 and str 4 in map2.
+Because str1 and str2 have the same key, when we set them in map1, str2's value replaces str1's value for the key: 'Hello World.'   This behavior is repeated for str3 and str 4 in map2.
 ````
 
 ## 3) Demonstrate understanding of Hash maps
@@ -236,6 +229,8 @@ the output should be:
 ````
 
 ````
+A:
+
 function anagramGroups(arr) {
     let anagramMap = new HashMap();
     let resultLists = [];
@@ -255,3 +250,7 @@ function anagramGroups(arr) {
     return resultLists;
 }
 ````
+
+## 7) Write another hash map implementation as above, but use separate chaining as the collision resolution mechanism.
+
+* Test your hash map with the same values from the lotr hash map.
