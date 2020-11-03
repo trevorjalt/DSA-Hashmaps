@@ -30,7 +30,6 @@ class HashMapChain {
 
         if (this._hashTable[index] === undefined) {
             throw new Error('Key error')
-            // console.log('Key Error')
         }
         
         // loop through until key is found
@@ -72,7 +71,6 @@ class HashMapChain {
             // LinkedList Compare: think of this as insertLast
             // we need to start at beginning of our 'list' and loop through
             while (currItem.key !== key) {
-                // console.log(currItem.key)
 
                 // no more items on the list? insert our 'Node' representation
                 if (currItem.next === null) {
@@ -85,14 +83,6 @@ class HashMapChain {
                     this.length++
                     return
                 }
-
-                // currItem = currItem.next
-                // if (currItem.key === key) {
-                //     console.log('updating', key)
-
-                //     currItem.value = value
-                //     return
-                // }
             }
 
             // if key receives a new value, update it
@@ -137,19 +127,6 @@ class HashMapChain {
             return index            
         }
     }
-
-    // _findSlot(key) {
-    //     const hash = HashMap._hashString(key)
-    //     const start = hash % this._capacity
-
-    //     for (let i = start; i < start + this._capacity; i++) {
-    //         const index = i % this._capacity
-    //         const slot = this._hashTable[index]
-    //         if (slot === undefined || (slot.key === key && !slot.DELETED)) {
-    //             return index
-    //         }
-    //     }
-    // }
 
     _resize(size) {
         const oldSlots = this._hashTable
